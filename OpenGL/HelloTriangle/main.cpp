@@ -4,6 +4,9 @@
 #include "stdio.h"
 #include "Shader.h"
 
+#define STD_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 const char* vertexShaderSource = "#version 330 core\n"
 					"layout(location = 0) in vec3 aPos;"
 					"layout(location = 1) in vec3 aColor;"
@@ -27,7 +30,7 @@ void DrawRectangle(GLFWwindow* window, unsigned int shaderProgram);
 void DrawTriangle(GLFWwindow* window, unsigned int shaderProgram);
 void DrawByMoreVertexProperty(GLFWwindow* window, unsigned int shaderProgram);
 
-//#define SHADER_USE_FILE
+#define SHADER_USE_FILE
 int main() {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -56,6 +59,8 @@ int main() {
 	Shader s = Shader("vertex.glsl", "fragment.glsl");
 	s.use();
 	shaderProgram = s.ID;
+
+	s.setFloat("offsetX", 0.5);
 #else
 	//vertex shader
 	unsigned int vertexShader;
@@ -107,6 +112,37 @@ int main() {
 		break;
 	}
 	return 0;
+}
+
+
+
+void loadTexture()
+{
+
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	//
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	int width, height, nrChannels;
+	unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+
+	stbi_image_free(data);
+
 }
 
 //draw triangle
@@ -212,11 +248,19 @@ void DrawRectangle(GLFWwindow* window, unsigned int shaderProgram)
 
 void DrawByMoreVertexProperty(GLFWwindow* window, unsigned int shaderProgram)
 {
-	float vertices[] = 
+	/*float vertices[] = 
 	{
 		0.5f, -0.5f, 0.0f,   1, 0, 0,
 		-0.5f, -0.5f, 0.0f,	 0, 1, 0,
 		0.0f, 0.5f, 0.0f,	 0, 0, 1,
+	};*/
+
+	//上下颠倒的三角形
+	float vertices[] =
+	{
+		-0.5f, 0.5f, 0.0f,   1, 0, 0,
+		0.5f, 0.5f, 0.0f,	 0, 1, 0,
+		0.0f, -0.5f, 0.0f,	 0, 0, 1,
 	};
 
 	unsigned int VBO;
