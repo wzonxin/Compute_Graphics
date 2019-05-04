@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{e475486f-4f7e-44f6-88f7-fbb2982107cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\getstart">
+      <UniqueIdentifier>{91798472-1546-4be9-834a-6d62c8d4437d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\getstart\texture">
+      <UniqueIdentifier>{f9d4d4b8-a89c-44d5-9133-8665f03fdaa5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\OpenGL_0\glad.c">
@@ -24,16 +33,25 @@
     <ClCompile Include="Shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="IBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureShaderByFile.cpp">
+      <Filter>源文件\getstart\texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>源文件\getstart</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IBase.h">
+      <Filter>Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
