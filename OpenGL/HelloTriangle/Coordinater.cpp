@@ -1,12 +1,11 @@
 #include "IBase.h"
-
-#ifndef STB_IMAGE_IMPLEMENTATION
-	 #define STB_IMAGE_IMPLEMENTATION
-#endif
-
 #include "stb_image.h"
 
-class TextureShaderByFile : public BaseRef
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
+
+class Coordinater : public BaseRef
 {
 public:
 	unsigned shaderProgram;
@@ -14,10 +13,9 @@ public:
 
 	virtual void Init() override
 	{
-		shader = new Shader("vertex.glsl", "fragment.glsl");
+		shader = new Shader("vertex_coordinate.glsl", "fragment.glsl");
 		shader->use();
 		shaderProgram = shader->ID;
-		shader->setFloat("offsetX", 0);
 
 		//³¤·½ÐÎ
 		float vertices[] =
@@ -61,6 +59,24 @@ public:
 		glEnableVertexAttribArray(2);
 
 		loadTexture();
+
+		glm::mat4 model;
+		model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0, 0));
+
+		glm::mat4 view;
+		view = glm::translate(view, glm::vec3(0, 0, -3.0f));
+
+		glm::mat4 projection;
+		projection = glm::perspective(glm::radians(45.0f), 800.0f / 600, 0.1f, 100.0f);
+
+		int modelLoc = glGetUniformLocation(shader->ID, "model");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		modelLoc = glGetUniformLocation(shader->ID, "view");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(view));
+
+		modelLoc = glGetUniformLocation(shader->ID, "projection");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(projection));
 	}
 
 	virtual void MainLoop(GLFWwindow* window) override

@@ -1,12 +1,10 @@
 #include "IBase.h"
-
-#ifndef STB_IMAGE_IMPLEMENTATION
-	 #define STB_IMAGE_IMPLEMENTATION
-#endif
-
 #include "stb_image.h"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
-class TextureShaderByFile : public BaseRef
+class Math : public BaseRef
 {
 public:
 	unsigned shaderProgram;
@@ -14,10 +12,9 @@ public:
 
 	virtual void Init() override
 	{
-		shader = new Shader("vertex.glsl", "fragment.glsl");
+		shader = new Shader("vertex_transform.glsl", "fragment.glsl");
 		shader->use();
 		shaderProgram = shader->ID;
-		shader->setFloat("offsetX", 0);
 
 		//³¤·½ÐÎ
 		float vertices[] =
@@ -47,13 +44,9 @@ public:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-		/*glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);*/
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		/*glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);*/
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
@@ -61,10 +54,27 @@ public:
 		glEnableVertexAttribArray(2);
 
 		loadTexture();
+
+		glm::vec4 vec(1, 0, 0, 1);
+		glm::mat4 trans;
+		//trans = glm::translate(trans, glm::vec3(1, 0, 1));
+		trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0, 0, 1));
+		trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+		vec = trans * vec;
+		std::cout << vec.x << vec.y << vec.z << std::endl;
+
+		unsigned int transformLoc = glGetUniformLocation(shader->ID, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 	}
 
 	virtual void MainLoop(GLFWwindow* window) override
 	{
+		glm::mat4 trans;
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0, 0, 1.0f));
+		unsigned int transformLoc = glGetUniformLocation(shader->ID, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture1);
 		glActiveTexture(GL_TEXTURE1);

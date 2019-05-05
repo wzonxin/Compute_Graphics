@@ -4,10 +4,10 @@
 #include "stdio.h"
 #include "Shader.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-
 #include "Triangle.cpp"
-#include "TextureShaderByFile.cpp"
+//#include "TextureShaderByFile.cpp"
+#include "Math.cpp"
+#include "Coordinater.cpp"
 
 void processInput(GLFWwindow* window);
 
@@ -35,7 +35,9 @@ int main() {
 
 	BaseRef* mainClass;
 	mainClass = new Triangle();
-	mainClass = new TextureShaderByFile();
+	//mainClass = new TextureShaderByFile();
+	mainClass = new Math();
+	mainClass = new Coordinater();
 
 	mainClass->Init();
 

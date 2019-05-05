@@ -22,6 +22,18 @@
     <Filter Include="源文件\getstart\triangle">
       <UniqueIdentifier>{67032548-7c2c-4c90-9aac-72ecd5bc0948}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\getstart\math">
+      <UniqueIdentifier>{2ed2b6f7-5b49-46c8-b837-4f358ec69ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\getstart\coordinateSystem">
+      <UniqueIdentifier>{cdf3d566-df8f-4466-9d9f-59457aef9c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\math">
+      <UniqueIdentifier>{5530c9df-5a77-4908-b5b5-9fef8c989344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\coordinate">
+      <UniqueIdentifier>{4bfbe76a-e491-4d4d-997b-c82ed6d76f71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +54,12 @@
     <ClCompile Include="glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>源文件\getstart\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordinater.cpp">
+      <Filter>源文件\getstart\coordinateSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -60,6 +78,12 @@
     </None>
     <None Include="vertex.glsl">
       <Filter>资源文件</Filter>
+    </None>
+    <None Include="vertex_transform.glsl">
+      <Filter>资源文件\math</Filter>
+    </None>
+    <None Include="vertex_coordinate.glsl">
+      <Filter>资源文件\coordinate</Filter>
     </None>
   </ItemGroup>
 </Project>
