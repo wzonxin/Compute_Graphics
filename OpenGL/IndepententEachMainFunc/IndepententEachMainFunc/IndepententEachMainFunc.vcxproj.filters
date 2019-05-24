@@ -61,11 +61,5 @@
     <None Include="light_vertex.glsl">
       <Filter>源文件\light</Filter>
     </None>
-    <None Include="light_fragment.glsl">
-      <Filter>源文件\light</Filter>
-    </None>
-    <None Include="light_cube_fragment.glsl">
-      <Filter>源文件\light</Filter>
-    </None>
   </ItemGroup>
 </Project>

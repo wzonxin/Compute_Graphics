@@ -175,8 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl" />
-    <None Include="light_cube_fragment.glsl" />
-    <None Include="light_fragment.glsl" />
     <None Include="light_vertex.glsl" />
     <None Include="vertex_coordinate.glsl" />
   </ItemGroup>
