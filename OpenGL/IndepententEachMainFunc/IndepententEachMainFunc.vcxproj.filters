@@ -19,6 +19,9 @@
     <Filter Include="源文件\light">
       <UniqueIdentifier>{68f13645-8401-4e6f-ae5d-0bc9f7de72b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\materials">
+      <UniqueIdentifier>{d7a15174-d700-49b7-b705-0fac33c6cdcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -50,6 +53,9 @@
     <ClCompile Include="light.cpp">
       <Filter>源文件\light</Filter>
     </ClCompile>
+    <ClCompile Include="light_material.cpp">
+      <Filter>源文件\materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl">
@@ -66,6 +72,9 @@
     </None>
     <None Include="light_cube_fragment.glsl">
       <Filter>源文件\light</Filter>
+    </None>
+    <None Include="light_material_frag.glsl">
+      <Filter>源文件\materials</Filter>
     </None>
   </ItemGroup>
 </Project>

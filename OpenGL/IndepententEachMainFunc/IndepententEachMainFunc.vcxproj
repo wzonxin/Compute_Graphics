@@ -167,7 +167,10 @@
     <ClCompile Include="Cube.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="light.cpp" />
+    <ClCompile Include="light.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="light_material.cpp" />
     <ClCompile Include="MultiCube.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -177,6 +180,7 @@
     <None Include="fragment.glsl" />
     <None Include="light_cube_fragment.glsl" />
     <None Include="light_fragment.glsl" />
+    <None Include="light_material_frag.glsl" />
     <None Include="light_vertex.glsl" />
     <None Include="vertex_coordinate.glsl" />
   </ItemGroup>
