@@ -155,7 +155,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
 
 		lightShader.use();
-
+		lightShader.setVec3("viewPos", camera.Position);
 		lightShader.setVec3("lightPos", lightPos);
 		lightShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
 		lightShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
