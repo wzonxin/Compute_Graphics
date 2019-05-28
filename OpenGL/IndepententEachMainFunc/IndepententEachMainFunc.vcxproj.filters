@@ -22,6 +22,9 @@
     <Filter Include="源文件\materials">
       <UniqueIdentifier>{d7a15174-d700-49b7-b705-0fac33c6cdcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\diffuse_texture">
+      <UniqueIdentifier>{7112f26e-c96a-41e6-bd12-1a8ccea9acaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -56,6 +59,9 @@
     <ClCompile Include="light_material.cpp">
       <Filter>源文件\materials</Filter>
     </ClCompile>
+    <ClCompile Include="diffuse_texture.cpp">
+      <Filter>源文件\diffuse_texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl">
@@ -76,5 +82,19 @@
     <None Include="light_material_frag.glsl">
       <Filter>源文件\materials</Filter>
     </None>
+    <None Include="diffuse_texture_frag.glsl">
+      <Filter>源文件\diffuse_texture</Filter>
+    </None>
+    <None Include="diffuse_tex_vertex.glsl">
+      <Filter>源文件\diffuse_texture</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="container2.png">
+      <Filter>源文件\diffuse_texture</Filter>
+    </Image>
+    <Image Include="container2_specular.png">
+      <Filter>源文件\diffuse_texture</Filter>
+    </Image>
   </ItemGroup>
 </Project>
