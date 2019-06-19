@@ -190,6 +190,7 @@
     <None Include="light_fragment.glsl" />
     <None Include="light_material_frag.glsl" />
     <None Include="light_vertex.glsl" />
+    <None Include="utility_calcLight.glsl" />
     <None Include="vertex_coordinate.glsl" />
     <None Include="world_light_frag.glsl" />
     <None Include="world_point_light_frag.glsl" />

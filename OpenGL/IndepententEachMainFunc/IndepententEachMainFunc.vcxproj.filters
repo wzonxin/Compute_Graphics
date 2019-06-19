@@ -28,6 +28,9 @@
     <Filter Include="源文件\1.5_worldLight">
       <UniqueIdentifier>{f44966a8-a193-4ec0-a23c-45261dfbef01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\1.6_multiColor">
+      <UniqueIdentifier>{dcf9af55-6fdf-4f29-bbab-aff2010caf47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -102,6 +105,9 @@
     </None>
     <None Include="world_spot_light_frag.glsl">
       <Filter>源文件\1.5_worldLight</Filter>
+    </None>
+    <None Include="utility_calcLight.glsl">
+      <Filter>源文件\1.6_multiColor</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
