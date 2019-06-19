@@ -25,6 +25,9 @@
     <Filter Include="源文件\diffuse_texture">
       <UniqueIdentifier>{7112f26e-c96a-41e6-bd12-1a8ccea9acaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\1.5_worldLight">
+      <UniqueIdentifier>{f44966a8-a193-4ec0-a23c-45261dfbef01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -62,6 +65,9 @@
     <ClCompile Include="diffuse_texture.cpp">
       <Filter>源文件\diffuse_texture</Filter>
     </ClCompile>
+    <ClCompile Include="WroldLight.cpp">
+      <Filter>源文件\1.5_worldLight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl">
@@ -87,6 +93,15 @@
     </None>
     <None Include="diffuse_tex_vertex.glsl">
       <Filter>源文件\diffuse_texture</Filter>
+    </None>
+    <None Include="world_light_frag.glsl">
+      <Filter>源文件\1.5_worldLight</Filter>
+    </None>
+    <None Include="world_point_light_frag.glsl">
+      <Filter>源文件\1.5_worldLight</Filter>
+    </None>
+    <None Include="world_spot_light_frag.glsl">
+      <Filter>源文件\1.5_worldLight</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

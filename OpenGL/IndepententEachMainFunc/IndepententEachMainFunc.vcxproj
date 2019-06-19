@@ -163,7 +163,9 @@
     <ClCompile Include="ControCam.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="diffuse_texture.cpp" />
+    <ClCompile Include="diffuse_texture.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="glad.c" />
     <ClCompile Include="Cube.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -178,6 +180,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="WroldLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diffuse_texture_frag.glsl" />
@@ -188,6 +191,9 @@
     <None Include="light_material_frag.glsl" />
     <None Include="light_vertex.glsl" />
     <None Include="vertex_coordinate.glsl" />
+    <None Include="world_light_frag.glsl" />
+    <None Include="world_point_light_frag.glsl" />
+    <None Include="world_spot_light_frag.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="container2.png" />
