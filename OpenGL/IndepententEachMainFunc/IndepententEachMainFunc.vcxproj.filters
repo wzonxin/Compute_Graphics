@@ -31,6 +31,9 @@
     <Filter Include="源文件\1.6_multiColor">
       <UniqueIdentifier>{dcf9af55-6fdf-4f29-bbab-aff2010caf47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\2.1_assimp">
+      <UniqueIdentifier>{98737796-2b37-4f28-b770-3cea8c6ce107}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>源文件\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="AssimpStruct.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +76,15 @@
     </ClCompile>
     <ClCompile Include="WroldLight.cpp">
       <Filter>源文件\1.5_worldLight</Filter>
+    </ClCompile>
+    <ClCompile Include="WroldLightCalcFunc.cpp">
+      <Filter>源文件\1.6_multiColor</Filter>
+    </ClCompile>
+    <ClCompile Include="Assimp.cpp">
+      <Filter>源文件\2.1_assimp</Filter>
+    </ClCompile>
+    <ClCompile Include="AssimpStruct.cpp">
+      <Filter>源文件\2.1_assimp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
