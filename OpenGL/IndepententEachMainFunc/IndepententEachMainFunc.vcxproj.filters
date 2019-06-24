@@ -34,6 +34,9 @@
     <Filter Include="源文件\2.1_assimp">
       <UniqueIdentifier>{98737796-2b37-4f28-b770-3cea8c6ce107}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\model">
+      <UniqueIdentifier>{fbdac939-33a9-425d-a606-b6f467ca6f14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -88,12 +91,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.glsl">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="vertex_coordinate.glsl">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="light_vertex.glsl">
       <Filter>源文件\light</Filter>
     </None>
@@ -124,6 +121,12 @@
     <None Include="utility_calcLight.glsl">
       <Filter>源文件\1.6_multiColor</Filter>
     </None>
+    <None Include="assimp_model_frag.glsl">
+      <Filter>源文件\2.1_assimp</Filter>
+    </None>
+    <None Include="assimp_model_vertex.glsl">
+      <Filter>源文件\2.1_assimp</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="container2.png">
@@ -132,5 +135,78 @@
     <Image Include="container2_specular.png">
       <Filter>源文件\diffuse_texture</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="fragment.glsl">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="vertex_coordinate.glsl">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="model\arm_dif.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\arm_showroom_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\arm_showroom_spec.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\body_dif.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\body_showroom_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\body_showroom_spec.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\glass_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\glass_dif.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\hand_dif.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\hand_showroom_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\hand_showroom_spec.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\helmet_diff.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\helmet_showroom_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\helmet_showroom_spec.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\leg_dif.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\leg_showroom_ddn.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\leg_showroom_spec.png">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\LICENSE.txt">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\nanosuit.blend">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\nanosuit.mtl">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\nanosuit.obj">
+      <Filter>资源文件\model</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

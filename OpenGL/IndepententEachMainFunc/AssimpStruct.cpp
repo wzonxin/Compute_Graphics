@@ -51,14 +51,14 @@ void Mesh::Draw(Shader shader)
 		else if (name == "texture_specular")
 			number = std::to_string(specularNr);
 
-		shader.setInt(("material." + name + number), i);
+		shader.setInt((name + number), i);
 		glBindTexture(GL_TEXTURE_2D, textures[i].id);
 	}
-	glActiveTexture(GL_TEXTURE0);
-
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+
+	glActiveTexture(GL_TEXTURE0);
 }
 
 
@@ -103,6 +103,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 			glm::vec2 vec;
 			vec.x = mesh->mTextureCoords[0][i].x;
 			vec.y = mesh->mTextureCoords[0][i].y;
+			vertex.TexCoords = vec;
 		}
 		else
 		{
@@ -135,14 +136,20 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 	return Mesh(vertices, indices, textures);
 }
 
-unsigned int TextureFromFile(const char* path, string modelPath)
+unsigned int Model::TextureFromFile(const char* path, string modelPath)
 {
-	unsigned int texture;
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	unsigned int textureId;
+	glGenTextures(1, &textureId);
 
+	string fileName = string(path);
+	fileName = directory + "/" + path;
 	int height, width, channel;
-	unsigned char* data = stbi_load(path, &width, &height, &channel, 0);
+	unsigned char* data = stbi_load(fileName.c_str(), &width, &height, &channel, 0);
+	if (!data) 
+	{
+		cout << "load texture fail:" << fileName << endl;
+		return textureId;
+	}
 	GLenum format;
 	if (channel == 1)
 		format = GL_RED;
@@ -150,7 +157,8 @@ unsigned int TextureFromFile(const char* path, string modelPath)
 		format = GL_RGB;
 	else if (channel == 4)
 		format = GL_RGBA;
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, format, GL_UNSIGNED_BYTE, (void*)data);
+	glBindTexture(GL_TEXTURE_2D, textureId);
+	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -160,7 +168,7 @@ unsigned int TextureFromFile(const char* path, string modelPath)
 
 	stbi_image_free(data);
 
-	return texture;
+	return textureId;
 }
 
 vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)

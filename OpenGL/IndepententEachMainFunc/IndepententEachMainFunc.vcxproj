@@ -191,15 +191,27 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="assimp_model_frag.glsl" />
+    <None Include="assimp_model_vertex.glsl" />
     <None Include="diffuse_texture_frag.glsl" />
     <None Include="diffuse_tex_vertex.glsl" />
-    <None Include="fragment.glsl" />
+    <Text Include="fragment.glsl">
+      <FileType>Document</FileType>
+    </Text>
     <None Include="light_cube_fragment.glsl" />
     <None Include="light_fragment.glsl" />
     <None Include="light_material_frag.glsl" />
     <None Include="light_vertex.glsl" />
+    <CopyFileToFolders Include="model\nanosuit.blend">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="model\nanosuit.mtl">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
     <None Include="utility_calcLight.glsl" />
-    <None Include="vertex_coordinate.glsl" />
+    <Text Include="vertex_coordinate.glsl">
+      <FileType>Document</FileType>
+    </Text>
     <None Include="world_light_frag.glsl" />
     <None Include="world_point_light_frag.glsl" />
     <None Include="world_spot_light_frag.glsl" />
@@ -207,6 +219,31 @@
   <ItemGroup>
     <Image Include="container2.png" />
     <Image Include="container2_specular.png" />
+    <CopyFileToFolders Include="model\arm_dif.png" />
+    <CopyFileToFolders Include="model\arm_showroom_ddn.png" />
+    <CopyFileToFolders Include="model\arm_showroom_spec.png" />
+    <CopyFileToFolders Include="model\body_dif.png" />
+    <CopyFileToFolders Include="model\body_showroom_ddn.png" />
+    <CopyFileToFolders Include="model\body_showroom_spec.png" />
+    <CopyFileToFolders Include="model\glass_ddn.png" />
+    <CopyFileToFolders Include="model\glass_dif.png" />
+    <CopyFileToFolders Include="model\hand_dif.png" />
+    <CopyFileToFolders Include="model\hand_showroom_ddn.png" />
+    <CopyFileToFolders Include="model\hand_showroom_spec.png" />
+    <CopyFileToFolders Include="model\helmet_diff.png" />
+    <CopyFileToFolders Include="model\helmet_showroom_ddn.png" />
+    <CopyFileToFolders Include="model\helmet_showroom_spec.png" />
+    <CopyFileToFolders Include="model\leg_dif.png" />
+    <CopyFileToFolders Include="model\leg_showroom_ddn.png" />
+    <CopyFileToFolders Include="model\leg_showroom_spec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="model\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="model\nanosuit.obj">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
